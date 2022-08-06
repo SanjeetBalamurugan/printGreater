@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Which is greater?</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+      :root {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="printGreater.html">
+      <fieldset>
+        <legend>Which is greater</legend>
+        Enter First number<input
+          type="number"
+          value="0"
+          min="0"
+          name="first"
+          id="first"
+        />
+        <br />
+        Enter Second number<input
+          type="number"
+          value="0"
+          min="0"
+          name="second"
+          id="second"
+        />
+      </fieldset>
+    </form>
+    <div id="output"></div>
+    <script defer>
+      const first = document.querySelector("#first");
+      const second = document.querySelector("#second");
+      const output = document.querySelector("#output");
+
+      var a = 0;
+      var b = 0;
+
+      first.value = 0;
+      second.value = 0;
+
+      function greaterNumber(val1, val2) {
+        if (val1 != val2) {
+          if (Number(val1) > Number(val2)) {
+            output.innerText = `A is greater with a value of ${a}`;
+          } else {
+            output.innerText = `B is greater with a value of ${b}`;
+          }
+        } else {
+          output.innerText = `A(${a}) is equal to B(${b})`;
+        }
+      }
+
+      first.addEventListener("input", () => {
+        a = first.value;
+        greaterNumber(a, b);
+      });
+      second.addEventListener("input", () => {
+        b = second.value;
+        greaterNumber(a, b);
+      });
+    </script>
+  </body>
+</html>
